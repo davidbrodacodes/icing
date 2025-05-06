@@ -1,0 +1,213 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHL Graphics Overlay Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <div id="ui">
+        <h2>Icing NHL Graphics Overlay Maker</h2>
+        <span>Select stats:</span>
+        <select id="statsSelect">
+            <option value="" selected disabled></option>
+            <option value="regularSeason">Regular season</option>
+            <option value="playoffs">Playoffs</option>
+        </select>
+        <br>
+        <span>Select a team:</span>
+        <select id="teamSelect">
+            <option value="" selected disabled></option>
+            <option value="ANA">Anaheim Ducks</option>
+            <option value="BOS">Boston Bruins</option>
+            <option value="BUF">Buffalo Sabres</option>
+            <option value="CAR">Carolina Hurricanes</option>
+            <option value="CBJ">Columbus Blue Jackets</option>
+            <option value="CGY">Calgary Flames</option>
+            <option value="CHI">Chicago Blackhawks</option>
+            <option value="COL">Colorado Avalanche</option>
+            <option value="DAL">Dallas Stars</option>
+            <option value="DET">Detroit Red Wings</option>
+            <option value="EDM">Edmonton Oilers</option>
+            <option value="FLA">Florida Panthers</option>
+            <option value="LAK">Los Angeles Kings</option>
+            <option value="MIN">Minnesota Wild</option>
+            <option value="MTL">Montreal Canadiens</option>
+            <option value="NJD">New Jersey Devils</option>
+            <option value="NSH">Nashville Predators</option>
+            <option value="NYI">New York Islanders</option>
+            <option value="NYR">New York Rangers</option>
+            <option value="OTT">Ottawa Senators</option>
+            <option value="PHI">Philadelphia Flyers</option>
+            <option value="PIT">Pittsburgh Penguins</option>
+            <option value="SEA">Seattle Kraken</option>
+            <option value="SJS">San Jose Sharks</option>
+            <option value="STL">St. Louis Blues</option>
+            <option value="TBL">Tampa Bay Lightning</option>
+            <option value="TOR">Toronto Maple Leafs</option>
+            <option value="UTA">Utah Hockey Club</option>
+            <option value="VAN">Vancouver Canucks</option>
+            <option value="VGK">Vegas Golden Knights</option>
+            <option value="WSH">Washington Capitals</option>
+            <option value="WPG">Winnipeg Jets</option>
+          </select>
+        <br>
+        <span>Select a player:</span>
+        <select id="playerSelect">
+            <optgroup label="Forwards"></optgroup>
+            <optgroup label="Defensmen"></optgroup>
+            <optgroup label="Goalies"></optgroup>
+        </select>
+        <br />
+
+        <div id="dfUI" class="uiDiv">
+            <span class="light">Defensman/Forward</span>
+            <br />
+        <!--   <span>GP</span> -->
+            <input type="checkbox" style="display: none" name="" id="GP" checked>
+            <span>G</span>
+            <input type="checkbox" name="playerG" id="G" class="dfStat" checked>
+            <span>A</span>
+            <input type="checkbox" name="playerA" id="A" class="dfStat" checked>
+            <span>P</span>
+            <input type="checkbox" name="playerP" id="P" class="dfStat" checked>
+            <span>+/-</span>
+            <input type="checkbox" name="playerPlusMinus" id="plusMinus" class="dfStat">
+            <span>GWG</span>
+            <input type="checkbox" name="playerGWG" id="GWG" class="dfStat">
+            <span>OT G</span>
+            <input type="checkbox" name="playerOTG" id="otG" class="dfStat">
+            <span>PIM</span>
+            <input type="checkbox" name="playerPIM" id="pim" class="dfStat">
+            <span>PPG</span>
+            <input type="checkbox" name="playerPPG" id="ppg" class="dfStat">
+            <span>PPP</span>
+            <input type="checkbox" name="playerPPP" id="ppp" class="dfStat">
+            <br />
+
+        </div>
+        <div id="goalieUI" class="uiDiv">
+            <span class="light">Goalie</span>
+            <br />
+            <span>W</span>
+            <input type="checkbox" name="playerW" id="W" class="gStat">
+            <span>L</span>
+            <input type="checkbox" name="playerL" id="L" class="gStat">
+            <span>SV%</span>
+            <input type="checkbox" name="playerSV" id="SV" class="gStat">
+            <span>OT</span>
+            <input type="checkbox" name="playerOT" id="otL" class="gStat">
+            <span>GAA</span>
+            <input type="checkbox" name="playerGAA" id="GAA" class="gStat">
+            <span>SO</span>
+            <input type="checkbox" name="playerSO" id="SO" class="gStat">
+
+        </div>
+        
+
+
+
+    </div>
+    <div id="output">
+        <div id="playerTeam">
+           <img width="100" height="100" src="" alt="" id="teamLogo">
+           
+        </div>
+
+        <div id="playerHeadshot">
+            <img id="headshotSrc" src="" alt="">
+        </div>
+        <div id="playerNumBg"></div>
+        <div id="playerNum">
+            <span></span>
+        </div>
+        <div id="icing">
+            <img height="60" width="60" src="img/icing-logo.png" alt="">
+        </div>
+
+        <div id="playoffPlate">
+            <span>Playoffs</span>
+        </div>
+
+        <div id="statPlate">
+            <div id="stats">
+                <span id="playerName">Jméno hráče</span>
+                <span id="playerSeason">Sezóna</span>
+                <div id="numberStats">
+                    <div id="gamesPlayed" class="statBlock">
+                        <span id="gamesPlayedNum" class="statNum"></span>
+                        <span class="statCat">GP</span>
+                    </div>
+                    <!--D OR F STATS-->
+                    <div id="playerG" class="statBlock">
+                        <span id="playerGoalsNum" class="statNum"></span>
+                        <span class="statCat">G</span>
+                    </div>
+                    <div id="playerA" class="statBlock">
+                        <span id="playerAssistsNum" class="statNum"></span>
+                        <span class="statCat">A</span>
+                    </div>
+                    <div id="playerP" class="statBlock">
+                        <span id="playerPointsNum" class="statNum"></span>
+                        <span class="statCat">P</span>
+                    </div>
+                    <div id="playerPlusMinus" class="statBlock">
+                        <span id="playerPlusMinusNum" class="statNum"></span>
+                        <span class="statCat">+/-</span>
+                    </div>
+                    <div id="playerGWG" class="statBlock">
+                        <span id="playerGWGNum" class="statNum"></span>
+                        <span class="statCat">GWG</span>
+                    </div>
+                    <div id="playerOTG" class="statBlock">
+                        <span id="playerOTGNum" class="statNum"></span>
+                        <span class="statCat">OTG</span>
+                    </div>
+                    <div id="playerPIM" class="statBlock">
+                        <span id="playerPIMNum" class="statNum"></span>
+                        <span class="statCat">PIM</span>
+                    </div>
+                    <div id="playerPPG" class="statBlock">
+                        <span id="playerPPGNum" class="statNum"></span>
+                        <span class="statCat">PPG</span>
+                    </div>
+                    <div id="playerPPP" class="statBlock">
+                        <span id="playerPPPNum" class="statNum"></span>
+                        <span class="statCat">PPP</span>
+                    </div>
+
+                    <!--G STATS-->
+                    <div id="playerW" class="statBlock">
+                        <span id="playerWNum" class="statNum"></span>
+                        <span class="statCat">W</span>
+                    </div>
+                    <div id="playerL" class="statBlock">
+                        <span id="playerLNum" class="statNum"></span>
+                        <span class="statCat">L</span>
+                    </div>
+                    <div id="playerSV" class="statBlock">
+                        <span id="playerSVNum" class="statNum"></span>
+                        <span class="statCat">SV%</span>
+                    </div>
+                    <div id="playerOT" class="statBlock">
+                        <span id="playerOTNum" class="statNum"></span>
+                        <span class="statCat">OT</span>
+                    </div>
+                    <div id="playerGAA" class="statBlock">
+                        <span id="playerGAANum" class="statNum"></span>
+                        <span class="statCat">GAA</span>
+                    </div>
+                    <div id="playerSO" class="statBlock">
+                        <span id="playerSONum" class="statNum"></span>
+                        <span class="statCat">SO</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <button id="downloadBtn">Download</button>
+    <script type="module" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</body>
+</html>
